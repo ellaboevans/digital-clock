@@ -174,8 +174,12 @@
             let date = new Date ()
             // console.log(date)
             let hourSpan = date.getHours() % 24;
+            hourSpan = ("0" + hourSpan).slice(-2)
             let minuteSpan = date.getMinutes();
+            minuteSpan =("0" + minuteSpan).slice(-2)
             let secondsSpan = date.getSeconds();
+            secondsSpan =("0" + secondsSpan).slice(-2)
+
 
             // console.log(secondsSpan)
 
