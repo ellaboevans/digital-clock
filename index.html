@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #181818;
+        }
+        div{
+            width: 400px;
+            height: 200px;
+            box-shadow: 16px 14px 20px #0000008c;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        div::before{
+            content: "";
+            background-image: conic-gradient(
+                #ff0052 20deg,
+                transparent 120deg
+            );
+            width: 250%;
+            height: 180%;
+            /* border: 2px solid white; */
+            position: absolute;
+            animation: rotate 1s linear infinite;
+            z-index: -99999;
+
+        }
+        div::after{
+            content: "";
+            width: 390px;
+            height: 190px;
+            background: #101010;
+            position: absolute;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            box-shadow: 16px 14px 20px #0000008c;
+            z-index: -99999;
+
+
+
+        }
+        @keyframes rotate {
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(-360deg)
+            }
+        }
+
+        .container{
+            color: #ff0052;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            font-size: 35px;
+            letter-spacing: 5px;
+            color: white;
+            
+        }
+        
+        @media (max-width: 599px){
+            div{
+            width: 200px;
+            height: 200px;
+            box-shadow: 16px 14px 20px #0000008c;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        div::before{
+            content: "";
+            background-image: conic-gradient(
+                #ff0052 20deg,
+                transparent 120deg
+            );
+            width: 180%;
+            height: 180%;
+            /* border: 2px solid white; */
+            position: absolute;
+            animation: rotate 1s linear infinite;
+            z-index: -99999;
+
+        }
+        div::after{
+            content: "";
+            width: 190px;
+            height: 190px;
+            background: #101010;
+            position: absolute;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            box-shadow: 16px 14px 20px #0000008c;
+            z-index: -99999;
+
+
+
+        }
+        @keyframes rotate {
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg)
+            }
+        }
+
+        .container{
+        
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            letter-spacing: 5px;
+            color: white;
+            
+            
+        }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="container">
+        
+        
+        
+    </section>
+    <div>
+       <div class="container clock">
+        <span id="hours">10</span>
+        <span>:</span>
+        <span id="minute">50</span>
+        <span>:</span>
+        <span id="seconds">25</span>
+        <span id="amorpm">PM</span>
+        
+       </div>
+
+    </div>
+    <script>
+        const hour = document.querySelector("#hours");
+        const minute = document.querySelector("#minute");
+        const seconds = document.querySelector("#seconds")
+        const amorpm = document.querySelector("#amorpm");
+
+        
+        function newTime (){
+            let date = new Date ()
+            // console.log(date)
+            let hourSpan = date.getHours() % 24;
+            let minuteSpan = date.getMinutes();
+            let secondsSpan = date.getSeconds();
+
+            // console.log(secondsSpan)
+
+           hour.innerText = hourSpan
+           minute.innerText = minuteSpan
+           seconds.innerText = secondsSpan
+
+           let amorpmSpan
+
+           
+           amorpmSpan = hourSpan >= 0 && hourSpan <=11 ? "AM" : "PM" 
+            amorpm.innerText = amorpmSpan;
+            
+        }
+        setInterval(newTime, 1000)
+        
+
+    </script>
+</body>
+</html>
