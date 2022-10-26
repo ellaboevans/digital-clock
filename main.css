@@ -81,6 +81,8 @@ div::after {
     width: 180%;
     height: 180%;
     /* border: 2px solid white; */
+    border-radius: 10px;
+
     position: absolute;
     animation: rotate 1s linear infinite;
     z-index: -99999;
